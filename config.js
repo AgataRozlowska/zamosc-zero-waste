@@ -6,13 +6,13 @@
 const CONFIG = {
   // Adres e-mail, na który trafiają zgłoszenia warsztatów (formularz „Dodaj swój warsztat”).
   // Zostaw pusty "", jeśli formularz ma tylko pokazywać ten adres do skopiowania.
-  email: "",
+  email: "zak@zdk.zamosc.pl",
 
   // Telefon kontaktowy do koordynatora projektu (opcjonalnie), np. "+48 84 000 00 00".
   telefon: "",
 
   // Nazwa organizatora pokazywana w stopce, np. "Urząd Miasta Zamość, Wydział Kultury i Sportu".
-  organizator: "",
+  organizator: "Zamojska Akademia Kultury",
 
   // Adres osadzenia mapy z Moich Map Google (instrukcja w pliku INSTRUKCJA.txt, krok 3).
   // Wygląda tak: "https://www.google.com/maps/d/embed?mid=XXXXXXXX"
