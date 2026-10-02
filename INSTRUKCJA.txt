@@ -1,0 +1,83 @@
+ZAMOŚĆ ZERO WASTE – INSTRUKCJA URUCHOMIENIA STRONY
+===================================================
+
+Zawartość paczki
+----------------
+index.html                    strona główna (o projekcie, kategorie, mapa, wydarzenia, pytania)
+aplikacja.html                wyszukiwarka fachowców (kafelki, pytanie „co dokładnie”, lista zakładów)
+style.css                     wygląd obu stron
+config.js                     USTAWIENIA – jedyny plik do edycji na co dzień
+dane.js                       baza zakładów, kategorie i porady
+wspolne.js, strona.js,
+aplikacja.js                  kod stron (nie trzeba edytować)
+zaklady-do-map-google.csv     lista zakładów do zaimportowania w Moich Mapach Google
+
+Strona jest statyczna: nie potrzebuje bazy danych, PHP ani instalacji.
+Wystarczy dowolny serwer WWW albo darmowy hosting stron statycznych.
+
+
+KROK 1. Wgranie na serwer
+-------------------------
+Opcja A – serwer miasta:
+  Skopiuj cały folder „zamosc-zero-waste” na serwer WWW, np. jako
+  https://www.zamosc.pl/zerowaste/  (adres ustala dział informatyki).
+  Strona startowa to index.html.
+
+Opcja B – darmowy hosting (np. Netlify, GitHub Pages, Cloudflare Pages):
+  Na Netlify: zaloguj się na app.netlify.com, wybierz „Add new site” → „Deploy manually”
+  i przeciągnij folder „zamosc-zero-waste”. Po chwili strona ma publiczny adres.
+  Własną domenę (np. zerowaste.zamosc.pl) można podpiąć później w ustawieniach.
+
+
+KROK 2. Ustawienia w pliku config.js
+------------------------------------
+Otwórz config.js w Notatniku i uzupełnij tekst w cudzysłowach:
+  email        – adres, na który trafiają zgłoszenia warsztatów,
+  telefon      – telefon kontaktowy (opcjonalnie),
+  organizator  – nazwa organizatora w stopce,
+  wydarzenia   – terminy kawiarenek naprawczych (wzór jest w pliku).
+Zapisz plik i wgraj go ponownie na serwer.
+
+Formularz „Dodaj warsztat”:
+  – gdy wpisany jest tylko „email”, formularz otwiera program pocztowy mieszkańca
+    z gotową wiadomością; zgłaszający klika „Wyślij”;
+  – gdy dział informatyki ma skrypt odbierający formularze (albo konto w usłudze
+    typu Formspree), wpisz jego adres w „formularzEndpoint”. Formularz wyśle wtedy
+    dane bezpośrednio (POST, JSON: nazwa, rodzaj, adres, telefon, opis, zgloszenie).
+
+
+KROK 3. Mapa zakładów (Moje Mapy Google, bezpłatnie)
+----------------------------------------------------
+1. Wejdź na https://www.google.com/maps/d/ i zaloguj się kontem Google urzędu.
+2. Kliknij „Utwórz nową mapę”, nadaj nazwę „Zamość Zero Waste”.
+3. W warstwie kliknij „Importuj” i wybierz plik zaklady-do-map-google.csv.
+4. Jako kolumnę z lokalizacją wskaż „Adres”, jako tytuł znacznika „Nazwa”.
+5. Opcjonalnie: „Styl” → „Grupuj według: Kategoria”, żeby rodzaje napraw miały różne kolory.
+6. Sprawdź, czy pinezki stoją we właściwych miejscach (szczególnie zakłady
+   w Szopinku, Kalinowicach, Sitańcu, Chyży, Zwódnem i Starym Zamościu).
+7. Kliknij „Udostępnij” → włącz „Każda osoba mająca link może wyświetlać”.
+8. Menu z trzema kropkami → „Umieść na mojej stronie” → skopiuj adres z src="...".
+   Wygląda tak: https://www.google.com/maps/d/embed?mid=XXXXXXXX
+9. Wklej go w config.js w pole „mapaEmbed”. Mapa pojawi się na stronie głównej.
+
+
+KROK 4. Zmiany w bazie zakładów
+-------------------------------
+Zakłady są w pliku dane.js, w tablicy RAW. Każdy wiersz to:
+  ["Nazwa", "kategoria", "Adres", "Telefon", "Google place_id", "Opis", "Uwaga (opcjonalnie)"]
+Kategorie (można podać kilka, oddzielone spacją):
+  krawiec szewc zegarmistrz agd rtv telefon komputer rower tapicer podloga
+  meble bizuteria klucze narzedzia optyk
+Gdy nie znasz place_id, wpisz "". Przycisk trasy wyszuka wtedy zakład po nazwie i adresie.
+Po weryfikacji telefonicznej usuń uwagę z ostatniej kolumny.
+
+
+Uwagi
+-----
+– Dane zakładów pochodzą z publicznych wizytówek firm (stan: październik 2026)
+  i wymagają weryfikacji przed oficjalnym startem.
+– Strona nie zbiera danych osobowych i nie używa ciasteczek. Formularz w trybie
+  e-mail nie wysyła niczego bez działania użytkownika w jego programie pocztowym.
+  Przy podłączeniu „formularzEndpoint” uzgodnij z IOD klauzulę informacyjną RODO.
+– Licznik „rzeczy uratowanych” z wersji testowej wymaga zapisu danych na serwerze;
+  w tej paczce go nie ma. Można go dodać, gdy będzie dostępny skrypt po stronie serwera.

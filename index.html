@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zamość Zero Waste</title>
+<meta name="description" content="Katalog napraw dla mieszkańców Zamościa: krawcy, szewcy, zegarmistrze, serwisy AGD i inni fachowcy.">
+<meta property="og:title" content="Zamość Zero Waste">
+<meta property="og:description" content="Katalog napraw dla mieszkańców Zamościa: krawcy, szewcy, zegarmistrze, serwisy AGD i inni fachowcy.">
+<meta name="theme-color" content="#1f4d3a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Menu">
+  <div class="in">
+    <a class="logo" href="index.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>Zamość <span>Zero Waste</span></a>
+    <a class="nl" href="index.html" aria-current="page">O projekcie</a>
+    <a class="nl" href="#mapa">Mapa</a>
+    <a class="nl" href="#wydarzenia">Kawiarenki naprawcze</a>
+    <a class="btn sm" href="aplikacja.html">Znajdź fachowca</a>
+  </div>
+</nav>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <span class="eyebrow">Katalog napraw dla mieszkańców Zamościa</span>
+      <h1>Zepsuło się?<br><span>Napraw w Zamościu.</span></h1>
+      <p class="lead">Zamość Zero Waste łączy mieszkańców z krawcami, szewcami, zegarmistrzami, serwisami AGD, tapicerami i innymi fachowcami od napraw. Wybierasz, co się zepsuło, a dostajesz listę zakładów, numer telefonu i trasę dojazdu.</p>
+      <div class="cta">
+        <a class="btn" href="aplikacja.html">Znajdź fachowca</a>
+        <a class="btn ghost" href="#mapa">Zobacz mapę</a>
+      </div>
+    </div>
+    <aside class="bench" aria-label="Przykłady z katalogu">
+      <span class="tag-line" id="benchHead">W KATALOGU</span>
+      <div id="bench"></div>
+    </aside>
+  </header>
+
+  <section class="sec" id="kategorie">
+    <h2>Co się zepsuło?</h2>
+    <p class="intro">Kliknij i od razu przejdź do zakładów, które to naprawią.</p>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="sec" id="jak">
+    <h2>Jak to działa</h2>
+    <p class="intro">Trzy kroki od zepsutej rzeczy do warsztatu.</p>
+    <ol class="how">
+      <li><h3>Wybierz, co się zepsuło</h3><p>Buty, pralka, zegarek, kanapa albo telefon. Jeśli nie ma kafelka, wpisz rzecz w wyszukiwarkę.</p></li>
+      <li><h3>Doprecyzuj usterkę</h3><p>Na przykład „obcas” albo „zamek w kozakach”. Na górze listy zobaczysz zakłady, które robią dokładnie to.</p></li>
+      <li><h3>Zadzwoń albo jedź</h3><p>Każdy zakład ma numer telefonu i przycisk „Wyznacz trasę”, który otwiera nawigację w Mapach Google.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec">
+    <h2>Dlaczego warto naprawiać</h2>
+    <div class="why3">
+      <div><h3>Mniej odpadów</h3><p>Każda naprawiona rzecz to jedna rzecz mniej na wysypisku i jedna nowa, której nie trzeba produkować.</p></div>
+      <div><h3>Oszczędność</h3><p>Wymiana zamka, baterii czy uszczelki zwykle kosztuje ułamek ceny nowego przedmiotu.</p></div>
+      <div><h3>Lokalni rzemieślnicy</h3><p>Pieniądze zostają w Zamościu, a fachy takie jak szewc czy zegarmistrz mają szansę przetrwać.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="mapa">
+    <h2>Mapa zakładów</h2>
+    <p class="intro">Wszystkie warsztaty z katalogu w jednym miejscu.</p>
+    <div class="mapframe" id="mapbox"></div>
+  </section>
+
+  <section class="sec" id="wydarzenia">
+    <h2>Kawiarenki naprawcze i wydarzenia</h2>
+    <p class="intro">Spotkania, na których wolontariusze i fachowcy pomagają naprawić przyniesione rzeczy, oraz warsztaty „zrób to sam”.</p>
+    <div class="evlist" id="evlist"></div>
+  </section>
+
+  <section class="sec">
+    <div class="band">
+      <div>
+        <h2>Naprawiasz rzeczy w Zamościu?</h2>
+        <p>Dołącz do katalogu. Wpis jest bezpłatny, a mieszkańcy znajdą Cię, gdy będą szukać kogoś do naprawy.</p>
+        <ul><li>krawiectwo, szewstwo, zegarmistrzostwo</li><li>AGD, RTV, telefony, komputery, rowery</li><li>tapicerstwo, meble, podłogi i wiele innych</li></ul>
+      </div>
+      <a class="btn" href="aplikacja.html#dodaj">Zgłoś swój warsztat</a>
+    </div>
+  </section>
+
+  <section class="sec" id="pytania">
+    <h2>Częste pytania</h2>
+    <div class="faq">
+      <details><summary>Czy korzystanie z katalogu jest płatne?</summary><p>Nie. Katalog jest bezpłatny dla mieszkańców i dla zakładów. Cenę naprawy ustalasz bezpośrednio z fachowcem.</p></details>
+      <details><summary>Czy zakłady są sprawdzone?</summary><p>Katalog jest w wersji testowej. Dane pochodzą z publicznych wizytówek firm i są stopniowo weryfikowane. Przed wizytą zadzwoń i potwierdź godziny otwarcia.</p></details>
+      <details><summary>Zakład z listy już nie działa albo ma inny numer. Co zrobić?</summary><p>Wypełnij formularz „Zgłoś swój warsztat” i wybierz „Ten zakład już nie działa” albo „Poprawka istniejącego wpisu”. Poprawimy dane.</p></details>
+      <details><summary>Jak dodać swój warsztat?</summary><p>Wypełnij krótki formularz na stronie wyszukiwarki. Wpis pojawi się po sprawdzeniu.</p></details>
+      <details><summary>Czy aplikację trzeba instalować?</summary><p>Nie. Działa w przeglądarce na telefonie i komputerze. Możesz dodać ją do ekranu głównego telefonu z menu przeglądarki.</p></details>
+    </div>
+  </section>
+
+  <footer class="sitefoot" id="stopka"></footer>
+</div>
+
+<script src="config.js"></script>
+<script src="dane.js"></script>
+<script src="wspolne.js"></script>
+<script src="strona.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Znajdź fachowca – Zamość Zero Waste</title>
+<meta name="description" content="Wybierz, co się zepsuło, i znajdź w Zamościu zakład, który to naprawi.">
+<meta property="og:title" content="Znajdź fachowca – Zamość Zero Waste">
+<meta property="og:description" content="Wybierz, co się zepsuło, i znajdź w Zamościu zakład, który to naprawi.">
+<meta name="theme-color" content="#1f4d3a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Menu">
+  <div class="in">
+    <a class="logo" href="index.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>Zamość <span>Zero Waste</span></a>
+    <a class="nl" href="index.html">O projekcie</a>
+    <a class="nl" href="aplikacja.html" aria-current="page">Znajdź fachowca</a>
+    <a class="nl" href="index.html#mapa">Mapa</a>
+    <a class="nl" href="index.html#wydarzenia">Kawiarenki naprawcze</a>
+    <a class="btn ghost sm" href="#dodaj">Dodaj warsztat</a>
+  </div>
+</nav>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="eyebrow">Napraw zamiast wyrzucać</span>
+      <h1>Znajdź <span>fachowca</span></h1>
+      <p class="lead">Wybierz, co się zepsuło. Pokażemy zakłady w Zamościu, które to naprawią, i wyznaczymy trasę.</p>
+    </div>
+  </header>
+
+  <div class="steps" aria-label="Postęp">
+    <span id="st1" class="on"><i>1</i> Co się zepsuło</span><span class="sep"></span><span id="st2"><i>2</i> Co dokładnie</span><span class="sep"></span><span id="st3"><i>3</i> Wybierz zakład</span>
+  </div>
+
+  <section id="stepSub" hidden>
+    <button class="back" data-back="1" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Zmień, co się zepsuło</button>
+    <h2 class="q" id="subQ"></h2>
+    <div class="subs" id="subs"></div>
+  </section>
+
+  <section id="step1">
+    <h2 class="q">Co się zepsuło?</h2>
+    <div class="tiles" id="tiles"></div>
+    <p class="or">Nie widzisz swojej rzeczy? Wpisz ją:</p>
+    <div class="search" role="search">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="np. obcas, ekspres do kawy, pasek do zegarka" aria-label="Wpisz, co się zepsuło" autocomplete="off">
+      <button class="btn sm" id="qgo" type="button">Szukaj</button>
+    </div>
+  </section>
+
+  <section id="step2" hidden>
+    <button class="back" id="back" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg><span id="backTxt">Zmień, co się zepsuło</span></button>
+    <div class="reshead">
+      <div><h2 id="resTitle"></h2><p id="resSub"></p></div>
+      <a class="btn" id="mapAll" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg>Pokaż wszystkie na mapie</a>
+    </div>
+    <div id="list" aria-live="polite"></div>
+    <div class="tips" id="tips"></div>
+    <div class="notice" role="note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
+      <p><strong>Wersja testowa.</strong> Dane pochodzą z publicznych wizytówek firm i czekają na weryfikację. Przed wizytą zadzwoń i potwierdź godziny otwarcia. „Wyznacz trasę” otwiera Mapy Google z trasą od Twojej lokalizacji.</p>
+    </div>
+  </section>
+
+  <section class="panel" id="dodaj">
+    <h2>Naprawiasz rzeczy w Zamościu?</h2>
+    <p>Zgłoś swój warsztat albo popraw dane istniejącego wpisu. Wpis jest bezpłatny i pojawi się w katalogu po sprawdzeniu.</p>
+    <form id="form" novalidate>
+      <label>Nazwa warsztatu<input id="f-name" required maxlength="120"></label>
+      <label>Rodzaj napraw<select id="f-cat" required></select></label>
+      <label>Adres<input id="f-addr" maxlength="160" placeholder="ulica i numer"></label>
+      <label>Telefon<input id="f-phone" maxlength="40" inputmode="tel"></label>
+      <label class="full">Co naprawiasz?<textarea id="f-desc" maxlength="600" placeholder="np. przeróbki odzieży, wymiana zamków, skracanie spodni"></textarea></label>
+      <label class="full">Rodzaj zgłoszenia<select id="f-type"><option value="Nowy warsztat">Nowy warsztat</option><option value="Poprawka istniejącego wpisu">Poprawka istniejącego wpisu</option><option value="Zakład już nie działa">Ten zakład już nie działa</option></select></label>
+      <div class="formfoot full"><button class="btn" type="submit" id="f-send">Wyślij zgłoszenie</button><span class="status" id="f-status" role="status"></span></div>
+    </form>
+  </section>
+
+  <footer class="sitefoot" id="stopka"></footer>
+</div>
+
+<script src="config.js"></script>
+<script src="dane.js"></script>
+<script src="wspolne.js"></script>
+<script src="aplikacja.js"></script>
+</body>
+</html>
